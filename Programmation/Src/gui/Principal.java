@@ -72,7 +72,7 @@ public class Principal extends JFrame {
 		chatPanel.setLayout(null);
 		reducuded_string = new DefaultListModel<>();
 		reducedScrollPane = new JScrollPane();
-		reducedScrollPane.setBounds(22, 462, 659, 44);
+		reducedScrollPane.setBounds(126, 462, 555, 44);
 		contentPane.add(reducedScrollPane);
 
 		reduced_list = new JList(reducuded_string);
@@ -132,7 +132,7 @@ public class Principal extends JFrame {
 		});
 
 		JScrollPane scrollPane = new JScrollPane(connected_list);
-		scrollPane.setBounds(511, 45, 170, 407);
+		scrollPane.setBounds(511, 69, 170, 383);
 		scrollPane.setViewportView(connected_list);
 		contentPane.add(scrollPane);
 
@@ -216,6 +216,14 @@ public class Principal extends JFrame {
 		newPseudo.setBounds(564, 6, 117, 23);
 		contentPane.add(newPseudo);
 		newPseudo.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("UserConnected");
+		lblNewLabel.setBounds(534, 45, 135, 15);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblUserReduced = new JLabel("User Reduced");
+		lblUserReduced.setBounds(12, 462, 107, 44);
+		contentPane.add(lblUserReduced);
 
 	}
 
@@ -249,7 +257,7 @@ public class Principal extends JFrame {
 	public void ReceiveMessage(String msg, int ID) {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Date date = new Date();
-		if (activeuser.getUserID() == ID) {
+		if (activeuser != null && activeuser.getUserID() == ID) {
 			messages_string.addElement(activeuser.getPseudo() + ": " + msg + " ( " + formatter.format(date) + " )");
 		}
 
